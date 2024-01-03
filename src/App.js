@@ -1,24 +1,24 @@
-import logo from './logo.svg';
-import './App.css';
+
+
+import AddMovie from './Components/AddMovie';
+import DeleteMovie from './Components/DeleteMovie';
+import NotFound from './Components/NotFound';
+import SearchMovie from './Components/SearchMovie';
+import ViewAll from './Components/ViewAll';
+import { BrowserRouter, Route, Routes } from 'react-router-dom';
 
 function App() {
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+<BrowserRouter>
+<Routes>
+  
+  <Route path='/' exact element={<AddMovie/>}/>
+  <Route path='*'  element={<NotFound/>}/>
+  <Route path='/search'  element={<SearchMovie/>}/>
+  <Route path='/delete'  element={<DeleteMovie/>}/>
+  <Route path='/viewAll'  element={<ViewAll/>}/>
+</Routes>
+</BrowserRouter>
   );
 }
 
